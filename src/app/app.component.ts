@@ -37,15 +37,22 @@ export class AppComponent {
   }
 
   listRemove() {
-    this.courses$.remove(this.firstCourse)
+    this.courses$.remove(this.firstCourse);
   }
 
   listUpdate() {
-    this.courses$.update(this.firstCourse, { description: 'Angular 2 HTTP Modified' })
+    this.courses$.update(this.firstCourse, { description: 'Angular 2 HTTP Modified' });
   }
 
-  objUpdate() { }
+  objUpdate() {
+    this.lesson$.update({ description: 'NEW DESCRIPTION' });
+  }
 
-  objSet() { }
+  objSet() {
+    this.lesson$.set({ description: 'NEW DESCRIPTION' });
+  }
 
+  objRemove() {
+    this.lesson$.remove();
+  }
 }
