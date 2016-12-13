@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,19 @@ export class AppComponent {
   courses$: FirebaseListObservable<any>;
   lesson$: FirebaseObjectObservable<any>;
 
+  firstCourse: any;
+
   constructor(private af: AngularFire) {
 
     this.courses$ = af.database.list('courses');
     this.courses$.subscribe(console.log);
     this.lesson$ = af.database.object('lessons/-KYs4a9BokyJ5B3wNtvO');
     this.lesson$.subscribe(console.log);
+
+    this.courses$.map(courses => courses[0])
+      .subscribe(
+      course => this.firstCourse = course
+      );
   }
 
   listPush() {
@@ -28,7 +36,9 @@ export class AppComponent {
       );
   }
 
-  listRemove() { }
+  listRemove() {
+    this.courses$.remove(this.firstCourse)
+  }
 
   listUpdate() { }
 
