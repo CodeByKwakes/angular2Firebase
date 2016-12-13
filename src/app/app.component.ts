@@ -40,7 +40,9 @@ export class AppComponent {
     this.courses$.remove(this.firstCourse)
   }
 
-  listUpdate() { }
+  listUpdate() {
+    this.courses$.update(this.firstCourse, { description: 'Angular 2 HTTP Modified' })
+  }
 
   objUpdate() { }
 
