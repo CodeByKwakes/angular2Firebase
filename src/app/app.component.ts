@@ -16,5 +16,9 @@ export class AppComponent {
     courses$.subscribe(
       val => console.log(val)
     );
+
+    const course$ = af.database.object('courses/-KYs4a92gr_fxGV0dtYL');
+
+    course$.subscribe(console.log);
   }
 }
