@@ -12,26 +12,6 @@
 
 <body>
   <app-root>Loading...</app-root>
-
-  <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
-  <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBrQrhWHHYEfj5vcUmKgyJlGFmf06WdpmE",
-    authDomain: "final-angular-firebase.firebaseapp.com",
-    databaseURL: "https://final-angular-firebase.firebaseio.com",
-    storageBucket: "final-angular-firebase.appspot.com",
-    messagingSenderId: "500802307737"
-  };
-  firebase.initializeApp(config);
-
-  var root = firebase.database().ref('messages/2');
-
-  root.on('value', function(snap) {
-    console.log(snap.key,snap.val());
-  })
-  </script>
-
 </body>
 
 </html>
