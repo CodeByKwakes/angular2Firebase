@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-// import { initializeApp, database } from 'firebase';
+import { firebaseConfig } from './../environments/firebase.config';
+import { initializeApp, database } from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -10,23 +11,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
 
-  // constructor() {
+  constructor() {
 
-  //   // Initialize Firebase
-  //   var config = {
-  //     apiKey: 'AIzaSyBrQrhWHHYEfj5vcUmKgyJlGFmf06WdpmE',
-  //     authDomain: 'final-angular-firebase.firebaseapp.com',
-  //     databaseURL: 'https://final-angular-firebase.firebaseio.com',
-  //     storageBucket: 'final-angular-firebase.appspot.com',
-  //     messagingSenderId: '500802307737'
-  //   };
-  //   initializeApp(config);
+    // Initialize firebaseConfig
+    initializeApp(firebaseConfig);
 
-  //   var root = database().ref('messages');
+    let root = database().ref();
 
-  //   root.on('value', function (snap) {
-  //     console.log(snap.key, snap.val());
-  //   });
+    root.on('value', function (snap) {
+      console.log(snap.val());
+      // console.log(snap.key, snap.val());
+    });
 
-  // }
+  }
 }
