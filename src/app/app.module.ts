@@ -12,6 +12,7 @@ import { firebaseConfig } from './../environments/firebase.config';
 import { routerConfig } from './router.config';
 
 import { LessonsService } from './shared/model/lessons.service';
+import { CoursesService } from './shared/model/courses.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -34,7 +35,7 @@ import { CoursesComponent } from './courses/courses.component';
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routerConfig)
   ],
-  providers: [LessonsService],
+  providers: [LessonsService, CoursesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
